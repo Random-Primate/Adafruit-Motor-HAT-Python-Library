@@ -30,15 +30,87 @@ myMotorR.run(Adafruit_MotorHAT.FORWARD);
 myMotorL.run(Adafruit_MotorHAT.RELEASE);
 myMotorR.run(Adafruit_MotorHAT.RELEASE);
 
-while(direction != 'q'):
+while (direction != 'q'):
         direction = raw_input("Enter direction (w = Forward; s = Backward; a = Left; d = Right): ")
+        
+        # Move Forward
         if (direction == "w"):
                 print("Ok, going forward")
+                myMotorL.run(Adafruit_MotorHAT.FORWARD)
+                myMotorR.run(Adafruit_MotorHAT.FORWARD)
+                print "\tSpeed up..."
+		for i in range(255):
+			myMotorL.setSpeed(i)
+			myMotorR.setSpeed(i)
+			time.sleep(0.01)
+	
+		print "\tSlow down..."
+		for i in reversed(range(255)):
+			myMotorL.setSpeed(i)
+			myMotorR.setSpeed(i)
+			time.sleep(0.01)
+	
+	# Move Backward		
         elif (direction == "s"):
                 print("Ok, going backward")
+		myMotorL.run(Adafruit_MotorHAT.BACKWARD)
+		myMotorR.run(Adafruit_MotorHAT.BACKWARD)
+		print "\tSpeed up..."
+		for i in range(255):
+			myMotorL.setSpeed(i)
+			myMotorR.setSpeed(i)
+			time.sleep(0.01)
+	
+		print "\tSlow down..."
+		for i in reversed(range(255)):
+			myMotorL.setSpeed(i)
+			myMotorR.setSpeed(i)
+			time.sleep(0.01)
+		
+	# Move Left
         elif (direction == "a"):
                 print("Ok, going left")
+                myMotorL.run(Adafruit_MotorHAT.BACKWARD)
+		myMotorR.run(Adafruit_MotorHAT.FORWARD)
+		print "\tSpeed up..."
+		for i in range(255):
+			myMotorL.setSpeed(i)
+			myMotorR.setSpeed(i)
+			time.sleep(0.01)
+	
+		print "\tSlow down..."
+		for i in reversed(range(255)):
+			myMotorL.setSpeed(i)
+			myMotorR.setSpeed(i)
+			time.sleep(0.01)
+                
+        # Move Right
         elif (direction == "d"):
                 print("Ok, going right")
+                myMotorL.run(Adafruit_MotorHAT.FORWARD)
+		myMotorR.run(Adafruit_MotorHAT.BACKWARD)
+                print "\tSpeed up..."
+		for i in range(255):
+			myMotorL.setSpeed(i)
+			myMotorR.setSpeed(i)
+			time.sleep(0.01)
+	
+		print "\tSlow down..."
+		for i in reversed(range(255)):
+			myMotorL.setSpeed(i)
+			myMotorR.setSpeed(i)
+			time.sleep(0.01)
+                
+        # Catch typos
         else:
                 print("Direction not recognised.")
+        
+        # Turn off motors
+        print "Release"
+	myMotorL.run(Adafruit_MotorHAT.RELEASE)
+	myMotorR.run(Adafruit_MotorHAT.RELEASE)
+	time.sleep(1.0)
+
+	
+
+	
