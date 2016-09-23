@@ -5,7 +5,7 @@ Python library for interfacing with the Adafruit Motor HAT for Raspberry Pi to c
 
 Designed specifically to work with the Adafruit Motor Hat
 
-----> https://www.adafruit.com/product/2348
+https://www.adafruit.com/product/2348
 
 Adafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!
 
